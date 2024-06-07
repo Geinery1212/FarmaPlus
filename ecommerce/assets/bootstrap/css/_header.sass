@@ -1,0 +1,92 @@
+header
+    .logo
+        padding-top: 1.25em
+        padding-bottom: 1.25em
+        a
+            display: inline-block
+    .barra-busqueda
+        text-align: right
+        line-height: 2em
+        form
+            input
+                width: 100%
+                height: 40px
+                padding: 0 20px
+                font-size: 18px
+                color: #000
+                outline: none
+                border: 1px solid $azul_secundario
+                //border-radius: 30px
+                transition: all 0.60s ease
+            .btn
+                background: $azul_primario
+                color: #fff
+    .redes-sociales
+        text-align: right
+        line-height: 5em
+        a
+            border-radius: 50%
+            width: 2.5em
+            height: 2.5em
+            text-align: center
+            line-height: 2.5em
+            display: inline-block
+            background: navy
+            color: #fff
+            margin-left: 1.25em
+            margin-top: 1.75em
+            &.youtube
+                background: #c05554
+            &.twitter
+                background: #55acee
+            &.facebook
+                background: #3b5998
+    .menu
+        background: #135ea5
+        margin-bottom: 1.25em
+        ul
+            margin: 0
+            padding: 0
+            list-style: none
+            overflow: hidden //soluciona los problemas con los flotados
+            li
+                float: left
+                display: inline-block
+                margin: 0
+                padding: 0
+                a
+                    display: inline-block
+                    text-decoration: none
+                    padding: 1em 1.25em
+                    font-size: 0.87em
+                    color: #fff
+                    &:hover
+                        text-decoration: none
+                        background: $azul_secundario
+                ul
+                    display: none
+                    position: absolute
+                    width: 130px
+                    box-shadow: 0px 2px 2px gray
+                    z-index: 1
+                &:hover
+                    ul
+                        display: block
+                        li
+                            width: 100%
+                            background-color: $azul_primario
+                            font-size: 0.85em
+                            transition: all 300ms
+                            a
+                                width: 100%
+                                text-align: center
+                                color: #fff
+            .registro
+                float: right
+
+#slider
+    overflow: hidden
+    align-items: center
+    img
+        height: 450px
+        text-align: center

@@ -1,0 +1,147 @@
+.aboutus-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;    
+}
+
+.aboutus-content {
+    margin: 40px 0;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.aboutus-header {
+    text-align: center;
+    padding: 50px 0;
+    padding-bottom: 0;
+}
+
+.aboutus-header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #2c3e50;
+}
+
+.aboutus-header p {
+    color: #666;
+    font-size: 1.2em;
+}
+
+.aboutus-section {
+    margin: 40px 0;
+}
+
+.aboutus-section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+}
+
+.aboutus-section p {
+    color: #666;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.vision-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.vision-header {
+    text-align: center;
+    padding: 0 0;
+    padding-top: 50px;
+    padding-bottom: 5px;
+}
+
+.vision-header h2 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #2c3e50;
+}
+
+.vision-header p {
+    color: #666;
+    font-size: 1.2em;
+}
+
+.vision-section {
+    margin: 40px 0;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.vision-section h2 {
+    font-size: 18px;
+    color: #1d4e89;
+    border-bottom: 2px solid #67a6f3;
+    padding-bottom: 10px;
+}
+
+.vision-section div {
+    color: #000000;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.privacy-body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.privacy-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.privacy-header h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.privacy-section {
+    margin-bottom: 30px;
+}
+
+.privacy-section h2 {
+    font-size: 24px;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.privacy-section p {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.privacy-section strong {
+    font-weight: bold;
+    color: #555;
+}
+
+.privacy-section span {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.privacy-section a:hover {
+    text-decoration: underline;
+}

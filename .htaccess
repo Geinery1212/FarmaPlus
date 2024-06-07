@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+ErrorDocument 404 http://localhost/proyecto-farmacia/error/index
+RewriteCond %{SCRIPT_FILENAME} !-d 
+RewriteCond %{SCRIPT_FILENAME} !-f 
+RewriteRule ^(.*)/(.*)/(.*) index.php?site=$1&controller=$2&action=$3
+</IfModule>
