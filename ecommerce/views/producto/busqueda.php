@@ -1,9 +1,10 @@
-<div class="row titulo-seccion">
-    <div class="col-md-12">
-        <h3>Resultado de la búsqueda</h3>
-    </div>
-</div>
+
 <?php if ($productos != false) : ?>
+    <div class="row titulo-seccion">
+        <div class="col-md-12">
+            <h3>Resultado de la búsqueda</h3>
+        </div>
+    </div>
     <section class="row posts">
         <?php while ($producto = $productos->fetch_object()) : ?>
             <article class="col-sm-6 col-xl-4 post">
@@ -62,7 +63,7 @@
 <?php else : ?>
     <div class="row titulo-seccion">
         <div class="col-md-12">
-            <h3>Lo sentimos, sin resultados en la búsqueda</h3>
+            <h3>Lo sentimos, sin resultados en la búsqueda.</h3>
         </div>
     </div>
 <?php endif; ?>

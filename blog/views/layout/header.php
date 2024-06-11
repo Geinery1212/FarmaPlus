@@ -13,6 +13,8 @@
     <!-- <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/estilos.css"/> -->
     <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/shopInfo.css" />
     <link rel="stylesheet" href="<?= base_url_blog ?>assets/css/blog_styles.css" />
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/fc7ee59db0.js" crossorigin="anonymous"></script>
     <!-- tinymce  -->
     <script src="https://cdn.tiny.cloud/1/w0qq09a2sgf81aohstps7gp2odbp682wxyf9yuhtqasnu0y8/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Agrega Easy Toast -->
@@ -108,13 +110,26 @@
                             <a href="<?= base_url ?>shopInfo/vision">Visión</a>
                         </li>
                         <li>
+                            <a href="#">Servicios</a>
+                            <ul>
+                                <li>
+                                    <a href="<?= base_url ?>shopInfo/soporte">Soporte</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url ?>shopInfo/asesoria">Asesoría técnica </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="<?= base_url_blog ?>posts/index">Blog</a>
                         </li>
                         <li class="registro" id="registro_carrito">
                             <div id="carrito">
-                                <a href="<?= base_url ?>carrito/index" id="enlace_carrito"><img id="logo-carrito" src="<?= base_url ?>/assets/img/carrito.png" /> Carrito</a>
-                            </div>
 
+                                <a href="<?= base_url ?>carrito/index" id="enlace_carrito">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Carrito</a>
+                            </div>
                         </li>
                         <?php if (!isset($_SESSION['identity'])) : ?>
                             <li class="registro">

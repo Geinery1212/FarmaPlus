@@ -1,6 +1,6 @@
 <div class="vision-container">
     <div class="vision-header">
-        <h1>Nuestra Visión</h1>
+        <h2>Diseño</h2>
         <p>En FamarPlus, estamos comprometidos con:</p>
     </div>
 

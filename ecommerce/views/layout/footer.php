@@ -20,6 +20,7 @@
                             <a href="<?= base_url ?>shopInfo/vision">Visión</a>
                         </li>
                         <li><a href="<?= base_url ?>shopInfo/privacidad">Política de privacidad </a></li>
+                        <li><a href="<?= base_url ?>shopInfo/contacto">Contacto</a></li>
                     </ul>
                 </div>
             </div </div>

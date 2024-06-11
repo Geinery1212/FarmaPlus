@@ -134,11 +134,25 @@
                                 <a href="<?= base_url ?>shopInfo/vision">Visión</a>
                             </li>
                             <li>
+                                <a href="#">Servicios</a>
+                                <ul>
+                                    <li>
+                                        <a href="<?= base_url ?>shopInfo/soporte">Soporte</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url ?>shopInfo/asesoria">Asesoría técnica </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="<?= base_url_blog ?>posts/index">Blog</a>
                             </li>
                             <li class="registro" id="registro_carrito">
                                 <div id="carrito">
-                                    <a href="<?= base_url ?>carrito/index" id="enlace_carrito"><img id="logo-carrito" src="<?= base_url ?>/assets/img/carrito.png" /> Carrito</a>
+
+                                    <a href="<?= base_url ?>carrito/index" id="enlace_carrito">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                        Carrito</a>
                                 </div>
 
                             </li>

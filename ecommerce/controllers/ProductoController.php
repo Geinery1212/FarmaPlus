@@ -30,24 +30,36 @@ class ProductoController
         require_once 'ecommerce/views/producto/ver.php';
     }
     public function busqueda()
-    {
-        if (isset($_POST['buscar'])) {
-            $buscar = $_POST['buscar'];
-            $producto = new Producto();
-            $productos_por_pagina = 6;
-            $pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-            $offset = ($pagina_actual - 1) * $productos_por_pagina;
+{
+    if (isset($_POST['buscar'])) {
+        $buscar = $_POST['buscar'];
+        $producto = new Producto();
+        $productos_por_pagina = 6;
+        $pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+        $offset = ($pagina_actual - 1) * $productos_por_pagina;
+
+        try {
             // Búsqueda de productos
             $productos = $producto->buscar($buscar, $offset, $productos_por_pagina);
 
             // Obtenemos el número total de productos
-            $total_productos = $productos->num_rows;
+            if ($productos) {
+                $total_productos = $productos->num_rows;
+            } else {
+                $total_productos = 0;
+            }
 
             // Calculamos el total de páginas
             $total_paginas = ceil($total_productos / $productos_por_pagina);
+
             require_once 'ecommerce/views/producto/busqueda.php';
+        } catch (Exception $e) {
+            // Manejar el error adecuadamente (por ejemplo, mostrar un mensaje de error)
+            echo "Ocurrió un error durante la búsqueda: " . $e->getMessage();
         }
     }
+}
+
     public function gestion()
     {
         Utils::isAdmin();

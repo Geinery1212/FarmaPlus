@@ -12,6 +12,13 @@ class CategoriaBlogController{
         require_once 'blog/views/categoria/crearCategoria.php';        
     }
 
+    public function postsCategoria(){
+        $categoria_actual = conseguirCategoria($this->db, $_GET['id']);
+        $entradas = conseguirEntradas($this->db, null, $_GET['id'], null);
+        require_once 'blog/views/posts/postsCategoria.php';        
+    }
+
+
     public function guardarCategoria(){   
         if(isset($_POST)){                     
             $nombre = isset($_POST['nombre']) ? mysqli_real_escape_string($this->db, $_POST['nombre']) : false;            

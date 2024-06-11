@@ -614,10 +614,6 @@ footer .menu ul li a:hover {
   width: 23px;
 }
 
-#enlace_carrito {
-  padding: 0.9em 1.25em;
-}
-
 /*CARRITO DE COMPRA*/
 .img_carrito {
   height: 80px;
@@ -948,10 +944,16 @@ button {
 
   .main .posts .post:nth-child(2n + 1) {
     padding-left: 0.9375em;
+    width: 82%;
+    margin: 0 auto;
+    margin-bottom: 2em;
   }
 
   .main .posts .post:nth-child(2n) {
     padding-right: 0.9375em;
+    width: 82%;
+    margin: 0 auto;
+    margin-bottom: 2em;
   }
 
   .main .posts .post .info .extracto {

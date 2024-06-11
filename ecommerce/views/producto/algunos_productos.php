@@ -1,3 +1,11 @@
+<?php if (isset($_SESSION['UserControllerMessageSuccess'])) : ?>
+    <script>
+        toastr.success("<?php echo $_SESSION['UserControllerMessageSuccess']; ?>");
+    </script>
+<?php endif; ?>
+<?php
+Utils::deleteSession('UserControllerMessageSuccess');
+?>
 <div class="row titulo-seccion">
     <div class="col-md-12">
         <h3>Algunos de nuestros productos</h3>

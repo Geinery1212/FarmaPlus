@@ -123,21 +123,24 @@ class Producto
 
         return $this;
     }
-    public function getAllCategory(){
+    public function getAllCategory()
+    {
         $sql = "SELECT p.*, c.nombre AS 'catnombre' FROM productos p INNER JOIN  categorias c ON c.id = p.categoria_id WHERE p.categoria_id = {$this->getCategoria_id()} AND p.stock >= 1 ORDER BY id DESC";
         $productos = $this->db->query($sql);
         return $productos;
     }
-    
-    public function getAll(){
+
+    public function getAll()
+    {
         $productos = $this->db->query("SELECT * FROM productos ORDER BY id DESC");
         return $productos;
     }
-    public function getOne(){
+    public function getOne()
+    {
         $producto = $this->db->query("SELECT * FROM productos WHERE id = {$this->getId()}");
-        return $producto->fetch_object();// devuelto siendo un objeto usable
+        return $producto->fetch_object(); // devuelto siendo un objeto usable
     }
-    
+
     public function getProducts($offset, $limit)
     {
         $sql = "SELECT * FROM productos WHERE stock >= 1 ORDER BY rand() LIMIT $offset, $limit";
@@ -151,52 +154,57 @@ class Producto
         $total_productos = $total_productos_query->fetch_object()->total;
         return $total_productos;
     }
-    public function buscar($buscar, $offset, $limit){
+    public function buscar($buscar, $offset, $limit)
+    {
         $sql = "SELECT * FROM productos ";
-        if(!empty($buscar) && $buscar !=null){
-            $sql .= "WHERE nombre LIKE '%$buscar%' ";
+        if (!empty($buscar) && $buscar != null) {
+            $sql .= "WHERE nombre LIKE '%$buscar%' OR categoria_id IN (SELECT id FROM categorias WHERE nombre LIKE '%$buscar%') ";
         }
         $sql .= 'ORDER BY id DESC ';
         if (!empty($limit) && $limit != null) {
             $sql .= "LIMIT $offset, $limit";
         }
-        $buscar = $this->db->query($sql);
-        if($buscar->num_rows > 0){
-            return $buscar;
+        $resultados = $this->db->query($sql);
+        if ($resultados->num_rows > 0) {
+            return $resultados;
         }
         return false;
     }
-    public function save(){
+
+    public function save()
+    {
         $sql = "INSERT INTO productos VALUES (NULL,'{$this->getCategoria_id()}', '{$this->getNombre()}','{$this->getDescripcion()}',{$this->getPrecio()},{$this->getStock()},NULL,CURDATE(), '{$this->getImagen()}');";
         $save = $this->db->query($sql);
-        
+
         $result = false;
         if ($save) {
             $result = true;
         }
         return $result;
     }
-    public function edit(){
+    public function edit()
+    {
         $sql = "UPDATE productos SET nombre='{$this->getNombre()}', descripcion='{$this->getDescripcion()}',precio = {$this->getPrecio()}, stock={$this->getStock()}";
-        
-        if($this->getImagen() != null){
-            $sql.= ", imagen='{$this->getImagen()}'";
+
+        if ($this->getImagen() != null) {
+            $sql .= ", imagen='{$this->getImagen()}'";
         }
-        $sql.= " WHERE id={$this->id}";
+        $sql .= " WHERE id={$this->id}";
 
         $save = $this->db->query($sql);
-        
+
         $result = false;
         if ($save) {
             $result = true;
         }
         return $result;
     }
-    public function delete(){
+    public function delete()
+    {
         $sql = "DELETE FROM productos WHERE id= {$this->id}";
         $delete = $this->db->query($sql);
         $result = false;
-        if($delete){
+        if ($delete) {
             $result = true;
         }
         return $result;
@@ -213,5 +221,4 @@ class Producto
         }
         return $result;
     }
-
 }

@@ -3,7 +3,7 @@
 
 			<h1><?= $entrada_actual['titulo'] ?></h1>
 
-			<a href="categoria.php?id=<?= $entrada_actual['categoria_id'] ?>">
+			<a href="<?= base_url_blog ?>categoriaBlog/postsCategoria&id=<?= $entrada_actual['categoria_id'] ?>">
 				<h2><?= $entrada_actual['categoria'] ?></h2>
 			</a>
 			<h4><?= $entrada_actual['fecha'] ?> | <?= $entrada_actual['usuario'] ?></h4>

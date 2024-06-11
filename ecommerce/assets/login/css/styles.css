@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-:root{
-    --login-bg: #f8f3ff;
-    --light-blue:  #5ca5d6;
+:root {
+    --login-bg: #fff;
+    --light-blue: #5ca5d6;
     --image-bg: #eadbff;
+    --input-bg: rgb(242 242 242);
 }
 
-body{
+body {
     height: 100vh;
     font-family: 'Poppins', sans-serif;
     background-image: linear-gradient(to top, #74ceda, #135ea5 100%);
 }
 
-.login-container{
+.login-container {
     height: 43.75em;
     width: 60em;
     margin: 6em auto;
@@ -22,7 +23,7 @@ body{
     overflow: hidden;
 }
 
-.login-info-container{
+.login-info-container {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -32,60 +33,50 @@ body{
     background-color: var(--login-bg);
 }
 
-.image-container{
+.image-container {
     width: 50%;
     padding: 2rem;
     background-color: var(--image-bg);
     box-sizing: border-box;
 }
 
-.login-title{
+.login-title {
     text-transform: capitalize;
     font-size: 2.25rem;
     font-weight: 600;
     letter-spacing: 1px;
-    color : var(--light-blue);
+    color: var(--light-blue);
 }
-.social-login{
+
+.social-login {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
-/*
-.social-login-element{
-    width: 12.5rem;
-    height: 3.75rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid var(--light-blue);
-}*/
-.social-login-element{
+
+.social-login-element {
     text-align: center;
 }
-.social-login-element img{
-    width: 11.875rem;
-    height: 2.875rem;
+
+.social-login-element img {
+    width: 8rem;
+    height: auto;
     position: relative;
     top: 0;
     left: -0.625rem;
 }
 
-.social-login-element:hover{
+.social-login-element:hover {
     background-color: #fff;
     cursor: pointer;
 }
 
-.login-info-container > p{
+.login-info-container>p {
     font-size: 1.25em;
     margin-top: 1.25em;
 }
 
-.inputs-container{
+.inputs-container {
     height: 55%;
     width: 85%;
     display: flex;
@@ -94,26 +85,28 @@ body{
     align-items: center;
 }
 
-.input, .btn {
+.input,
+.btn {
     width: 90%;
     height: 3.125rem;
     font-size: 1em;
 }
 
-.input{
+.input {
     padding-left: 20px;
-    border: none;
     border-radius: 5px;
+    border: none;
+    background-color: var(--input-bg);
     font-weight: 600;
     letter-spacing: 1px;
     box-sizing: border-box;
 }
 
-.input:hover{
+.input:hover {
     border: 2px solid var(--light-blue);
 }
 
-.btn{
+.btn {
     width: 80%;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -123,55 +116,59 @@ body{
     cursor: pointer;
 }
 
-.inputs-container > p{
+.inputs-container>p {
     margin: 0;
 }
 
-.span{
+.span {
     color: var(--light-blue);
     font-weight: 600;
     cursor: pointer;
 }
 
-.login-a{
+.login-a {
     text-decoration: none;
 }
-.span-logo{
+
+.span-logo {
     text-decoration: none;
     color: rgb(36, 32, 32);
 }
+
 /*RESPONSIVE*/
 
-@media screen and (max-width: 1000px){
-        .login-container{
+@media screen and (max-width: 1000px) {
+    .login-container {
         width: 70%;
         margin-top: 3rem;
     }
 
-    .login-info-container{
+    .login-info-container {
         width: 100%;
     }
-    .image-container{
-        display:none;
+
+    .image-container {
+        display: none;
     }
 }
 
-@media screen and (max-width: 650px){
-    .login-container{
+@media screen and (max-width: 650px) {
+    .login-container {
         width: 90%;
     }
 }
 
-@media screen and (max-width: 500px){
-    .login-container{
+@media screen and (max-width: 500px) {
+    .login-container {
         height: 90%;
     }
-    .social-login{
+
+    .social-login {
         flex-direction: column;
         align-items: center;
-        height: 30%;
     }
-    .login-info-container > p{
+
+    .login-info-container>p {
         margin: 0;
     }
 }
