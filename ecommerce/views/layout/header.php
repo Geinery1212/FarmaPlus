@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/estilos.css?v=" <?php echo time(); ?> />
     <link rel="stylesheet" href="<?= base_url ?>assets/button_general_styles.css?v=" <?php echo time(); ?> />
     <!-- <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/estilos.css" /> -->
-    <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/shopInfo.css" />
+    <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/shopInfo.css?v=" <?php echo time();?> />
+    <script type="text/javascript" src="<?= base_url ?>assets/js/main.js"></script>
     <!-- Agrega Easy Toast -->
     <script type="text/javascript" src="<?= base_url ?>assets/jquery/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -109,17 +110,24 @@
 
 
             <!-- MENU -->
-            <?php $categorias = Utils::showCategorias(); ?>
+            <?php $categorias = Utils::showCategorias(); ?>     
             <nav class="menu">
                 <div class="container">
                     <div class="row">
-                        <ul>
+                        <!-- Botón de hamburguesa -->
+                        <div class="hamburguesa">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <!-- Lista de navegación principal -->
+                        <ul class="menu-lista">
                             <li>
                                 <a href="<?= base_url ?>producto/index">Inicio</a>
                             </li>
                             <li>
                                 <a href="#">Categorías </a>
-                                <ul>
+                                <ul class="submenu">
                                     <?php while ($categoria = $categorias->fetch_object()) : ?>
                                         <li>
                                             <a href="<?= base_url ?>categoria/ver&id=<?= $categoria->id ?>"><?= $categoria->nombre ?></a>
@@ -135,7 +143,7 @@
                             </li>
                             <li>
                                 <a href="#">Servicios</a>
-                                <ul>
+                                <ul class="submenu">
                                     <li>
                                         <a href="<?= base_url ?>shopInfo/soporte">Soporte</a>
                                     </li>
@@ -149,12 +157,10 @@
                             </li>
                             <li class="registro" id="registro_carrito">
                                 <div id="carrito">
-
                                     <a href="<?= base_url ?>carrito/index" id="enlace_carrito">
                                         <i class="fa-solid fa-cart-shopping"></i>
                                         Carrito</a>
                                 </div>
-
                             </li>
                             <?php if (!isset($_SESSION['identity'])) : ?>
                                 <li class="registro">
@@ -164,12 +170,16 @@
                                     <a href="<?= base_url ?>views/usuario/registro.php">Registrate aquí</a>
                                 </li>
                             <?php else : ?>
-                                <li class="registro"><a href="#"><?= $_SESSION['identity']->nombre ?> <?= $_SESSION['identity']->apellidos ?></a></li>
+                                <li class="registro">
+                                    <a href="#"><?= $_SESSION['identity']->nombre ?> <?= $_SESSION['identity']->apellidos ?></a>
+                                </li>
                             <?php endif; ?>
                         </ul>
+                        <!-- Fin de la lista de navegación principal -->
                     </div>
                 </div>
             </nav>
+
         </header>
         <!--INCIO SLIDER-->
         <?php if (Utils::isAdmin() != true && isset($_GET['controller']) && isset($_GET['action']) && $_GET['controller'] == 'producto' && $_GET['action'] == 'index') : ?>

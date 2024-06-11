@@ -14,7 +14,7 @@
 <?php
 Utils::deleteSession('PedidoControllerMessageSuccess');
 Utils::deleteSession('PedidoControllerMessageError');
-Utils::deleteSession('pago'); 
+Utils::deleteSession('pago');
 ?>
 
 <div class="row titulo-seccion">
@@ -52,36 +52,44 @@ Utils::deleteSession('pago');
     <h3>Datos del pedido: </h3>
     <p>Estado: <?= Utils::showStatus($pedido->estado) ?></p>
     <p>Numero de pedido: <?= $pedido->id ?></p>
-    <p>Total a pagar: <?= $pedido->coste ?></p>
+    <p>Total a pagar: <?= number_format($pedido->coste, 2) ?> MXN</p>
     <h3>Productos:</h3>
-    <table>
-        <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Unidades</th>
-        </tr>
-        <?php while ($producto = $productos->fetch_object()) : ?>
-            <tr class='table'>
-                <td>
-                    <?php if ($producto->imagen != null) : ?>
-                        <img src="<?= base_url ?>uploads/images/<?= $producto->imagen ?>" alt="Imagen del producto" class="img_carrito">
-                    <?php else : ?>
-                        <img src="<?= imagen_defecto ?>" alt="Imagen del producto" class="img_carrito">
-                    <?php endif; ?>
-                </td>
-                <td>
-                    <a href="<?= base_url ?>/producto/ver&id=<?= $producto->id ?>"><?= $producto->nombre ?></a>
-                </td>
-                <td>
-                    <?= $producto->precio ?>
-                </td>
-                <td>
-                    <?= $producto->unidades ?>
-                </td>
-            </tr>
-        <?php endwhile; ?>
-    </table>
+    <div class="table-responsive">
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Unidades</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($producto = $productos->fetch_object()) : ?>
+                    <tr>
+                        <td data-label="Imagen">
+                            <?php if ($producto->imagen != null) : ?>
+                                <img src="<?= base_url ?>uploads/images/<?= $producto->imagen ?>" alt="Imagen del producto" class="img_carrito">
+                            <?php else : ?>
+                                <img src="<?= imagen_defecto ?>" alt="Imagen del producto" class="img_carrito">
+                            <?php endif; ?>
+                        </td>
+                        <td data-label="Nombre">
+                            <a href="<?= base_url ?>/producto/ver&id=<?= $producto->id ?>"><?= $producto->nombre ?></a>
+                        </td>
+                        <td data-label="Precio">
+                            <?= number_format($producto->precio, 2) ?> MXN
+                        </td>
+                        <td data-label="Unidades">
+                            <?= $producto->unidades ?>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+    </div>
+
+
 <?php elseif (isset($_SESSION['pedido']) && $_SESSION['pedido'] != 'complete') : ?>
     <h1>Tu pedido No ha podido realizarce</h1>
 <?php endif; ?>

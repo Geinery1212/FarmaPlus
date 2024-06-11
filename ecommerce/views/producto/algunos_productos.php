@@ -27,7 +27,7 @@ Utils::deleteSession('UserControllerMessageSuccess');
                         <div class="info">
                             <h2 class="titulo"><?= $producto->nombre ?></h2>
                     </a>
-                    <h3 class="precio">$<?= $producto->precio ?></h3>
+                    <h3 class="precio">$<?=number_format($producto->precio,2) ?> MXN</h3>
                     <div class="opciones">
                         <div>                            
                             <a href="<?= base_url ?>Carrito/add&id=<?= $producto->id ?>" class="comprar">Comprar</a>

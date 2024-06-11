@@ -20,7 +20,7 @@
 			<!--botones-->
 			<a href="<?=base_url_blog ?>posts/mostrarPaginaCrear" class="boton boton-verde">Crear entradas</a>
 			<a href="<?=base_url_blog ?>categoriablog/mostrarPaginaCategoria" class="boton">Crear categoria</a>
-			<a href="mis-datos.php" class="boton boton-naranja">Mis datos</a>
+			<!-- <a href="mis-datos.php" class="boton boton-naranja">Mis datos</a> -->
 			<a href="<?=base_url?>Usuario/logout"class="boton boton-rojo">Cerrar sesión</a>
 		</div>
 	<?php endif; ?>

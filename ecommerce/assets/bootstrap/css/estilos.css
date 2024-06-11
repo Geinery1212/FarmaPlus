@@ -185,6 +185,30 @@ header .menu ul .registro {
   float: right;
 }
 
+/* Estilos para el menú hamburguesa */
+.menu-toggle {
+  display: none;
+  /* Oculta el menú hamburguesa por defecto */
+  cursor: pointer;
+}
+
+.menu-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items li {
+  display: inline-block;
+}
+
+.menu-items li a {
+  text-decoration: none;
+  padding: 1em 1.25em;
+  font-size: 0.87em;
+  color: #fff;
+}
+
 #slider {
   overflow: hidden;
   align-items: center;
@@ -606,10 +630,11 @@ footer .menu ul li a:hover {
 }
 
 /*LOGO CARRITO*/
-.carrito-icon-delete{
+.carrito-icon-delete {
   font-size: 22px !important;
-  color:red;
+  color: red;
 }
+
 #logo-carrito {
   width: 23px;
 }
@@ -679,21 +704,33 @@ footer .menu ul li a:hover {
   margin-right: 7px;
 }
 
-/*TABLAS*/
-table {
-  text-align: center;
+/* Contenedor responsivo */
+.table-responsive {
   width: 100%;
-  border-bottom: 1px solid #ccc;
+  overflow-x: auto;
 }
 
-th {
-  border-right: 1px solid #ccc;
+/* Estilo general de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
 }
 
+th,
 td {
-  border-top: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  padding: 2px;
+  padding: 0.75em;
+  text-align: left;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+  /* Evita que el texto se quiebre */
+  text-align: center;
+}
+
+/* Estilo para imágenes en la tabla */
+.img_carrito {
+  max-width: 100px;
+  height: auto;
 }
 
 a {
@@ -811,6 +848,7 @@ button {
   display: block;
   margin-top: 10px;
 }
+
 /* .main{
   margin-top: 1rem;
 } */
@@ -840,6 +878,7 @@ button {
   font-size: 1.125em;
   line-height: 1.125em;
 }
+
 .main .paginacion ul li.active {
   padding: 0.62em 0.9375em;
   font-size: 1.125em;
@@ -911,6 +950,8 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+
+
   header .row {
     display: flex;
     flex-direction: column;
@@ -937,6 +978,79 @@ button {
   header .menu ul li {
     float: none;
   }
+
+  /* Menu  */
+
+
+  /* Oculta la lista de navegación principal */
+  .menu-lista {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Estilo del botón de hamburguesa */
+  .hamburguesa {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 1em;
+  }
+
+  .hamburguesa span {
+    background-color: #fff;
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburguesa.abierto span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburguesa.abierto span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburguesa.abierto span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Muestra el menú principal al hacer clic en el botón de hamburguesa */
+  .hamburguesa.abierto~.menu-lista {
+    display: flex;
+  }
+
+  /* Estilo para los submenús en móvil */
+  header .menu ul {
+    font-weight: 500;
+  }
+
+  header .menu ul li ul {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    font-style: italic;
+    font-weight: 200;
+    background-color: #135ea5;
+    width: 100%;
+  }
+
+  header .menu ul li:hover ul {
+    background-color: #135ea5;
+    position: static;
+    flex-direction: column;
+    right: 0;
+    width: 100%;
+  }
+
+  header .menu ul li ul li {
+    text-align: center;
+  }
+
+  /* fin menu  */
 
   .main .titulo-seccion>div {
     padding: 0 0.9375em;
@@ -968,10 +1082,61 @@ button {
     margin-bottom: 0.62em;
   }
 
+  /* tabla detalle pedido */
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tbody tr {
+    display: block;
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+  }
+
+  .responsive-table td {
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    padding-left: 50%;
+    text-align: center;
+  }
+
+  .responsive-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 0.5em;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .responsive-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .responsive-distribution {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .total-carrito {
+    display: flex;
+    flex-direction: column;
+  }
+  .total-carrito h3{
+    margin-top: 25px;
+    margin-bottom: 0px;
+    padding-bottom: 0;
+  }
+  /* Titulos h3 */
+
   h3 {
     font-size: 15px;
     font-style: bold;
-  }
+  }  
 
   footer .menu {
     text-align: center;

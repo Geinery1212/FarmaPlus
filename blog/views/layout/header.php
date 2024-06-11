@@ -11,8 +11,9 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css" /> -->
     <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/estilos.css?v=" <?php echo time(); ?> />
     <!-- <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/estilos.css"/> -->
-    <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/shopInfo.css" />
-    <link rel="stylesheet" href="<?= base_url_blog ?>assets/css/blog_styles.css" />
+    <link rel="stylesheet" href="<?= base_url ?>assets/bootstrap/css/shopInfo.css?v=" <?php echo time();?> />
+    <link rel="stylesheet" href="<?= base_url_blog ?>assets/css/blog_styles.css?v=" <?php echo time();?> />
+    <script type="text/javascript" src="<?= base_url ?>assets/js/main.js"></script>
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/fc7ee59db0.js" crossorigin="anonymous"></script>
     <!-- tinymce  -->
@@ -89,13 +90,20 @@
         <nav class="menu">
             <div class="container">
                 <div class="row">
-                    <ul>
+                    <!-- Botón de hamburguesa -->
+                    <div class="hamburguesa">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <!-- Lista de navegación principal -->
+                    <ul class="menu-lista">
                         <li>
                             <a href="<?= base_url ?>producto/index">Inicio</a>
                         </li>
                         <li>
                             <a href="#">Categorías </a>
-                            <ul>
+                            <ul class="submenu">
                                 <?php while ($categoria = $categorias->fetch_object()) : ?>
                                     <li>
                                         <a href="<?= base_url ?>categoria/ver&id=<?= $categoria->id ?>"><?= $categoria->nombre ?></a>
@@ -111,7 +119,7 @@
                         </li>
                         <li>
                             <a href="#">Servicios</a>
-                            <ul>
+                            <ul class="submenu">
                                 <li>
                                     <a href="<?= base_url ?>shopInfo/soporte">Soporte</a>
                                 </li>
@@ -125,7 +133,6 @@
                         </li>
                         <li class="registro" id="registro_carrito">
                             <div id="carrito">
-
                                 <a href="<?= base_url ?>carrito/index" id="enlace_carrito">
                                     <i class="fa-solid fa-cart-shopping"></i>
                                     Carrito</a>
@@ -139,9 +146,12 @@
                                 <a href="<?= base_url ?>views/usuario/registro.php">Registrate aquí</a>
                             </li>
                         <?php else : ?>
-                            <li class="registro"><a href="#"><?= $_SESSION['identity']->nombre ?> <?= $_SESSION['identity']->apellidos ?></a></li>
+                            <li class="registro">
+                                <a href="#"><?= $_SESSION['identity']->nombre ?> <?= $_SESSION['identity']->apellidos ?></a>
+                            </li>
                         <?php endif; ?>
                     </ul>
+                    <!-- Fin de la lista de navegación principal -->
                 </div>
             </div>
         </nav>

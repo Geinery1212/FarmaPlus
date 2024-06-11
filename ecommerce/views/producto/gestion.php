@@ -32,7 +32,7 @@ Utils::deleteSession('ProductoControllerMessageError');
         <tr>
             <td><?= $pro->id; ?></td>
             <td><?= $pro->nombre; ?></td>
-            <td><?= $pro->precio; ?></td>
+            <td><?= number_format($pro->precio, 2); ?> MXN</td>
             <td><?= $pro->stock; ?></td>
             <td>
                 <!--AL SER EL TERCER PARAMETRO GET DEBE SER CON &-->

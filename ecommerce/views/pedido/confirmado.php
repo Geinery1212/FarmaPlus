@@ -13,34 +13,41 @@
         <p>Número de pedido: <?= $pedido->id ?></p>
         <p>Total a pagar: <?= $pedido->coste ?></p>
         <h3>Productos:</h3>
-        <table>
-            <tr>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Unidades</th>
-            </tr>
-            <?php while ($producto = $productos->fetch_object()) : ?>
-                <tr class='table'>
-                    <td>
-                        <?php if ($producto->imagen != null) : ?>
-                            <img src="<?= base_url ?>uploads/images/<?= $producto->imagen ?>" alt="Imagen del producto" class="img_carrito">
-                        <?php else : ?>
-                            <img src="<?= base_url ?>assets/imagenes/camiseta.png" alt="Imagen del producto" class="img_carrito">
-                        <?php endif; ?>
-                    </td>
-                    <td>
-                        <a href="<?= base_url ?>producto/ver&id=<?= $producto->id ?>"><?= $producto->nombre ?></a>
-                    </td>
-                    <td>
-                        <?= $producto->precio ?>
-                    </td>
-                    <td>
-                        <?= $producto->unidades ?>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
-        </table>
+        <div class="table-responsive">
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Unidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($producto = $productos->fetch_object()) : ?>
+                        <tr>
+                            <td data-label="Imagen">
+                                <?php if ($producto->imagen != null) : ?>
+                                    <img src="<?= base_url ?>uploads/images/<?= $producto->imagen ?>" alt="Imagen del producto" class="img_carrito">
+                                <?php else : ?>
+                                    <img src="<?= base_url ?>assets/imagenes/camiseta.png" alt="Imagen del producto" class="img_carrito">
+                                <?php endif; ?>
+                            </td>
+                            <td data-label="Nombre">
+                                <a href="<?= base_url ?>producto/ver&id=<?= $producto->id ?>"><?= $producto->nombre ?></a>
+                            </td>
+                            <td data-label="Precio">
+                                <?= $producto->precio ?>
+                            </td>
+                            <td data-label="Unidades">
+                                <?= $producto->unidades ?>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+
         <div id="paypal-button-container"></div>
     <?php endif; ?>
 

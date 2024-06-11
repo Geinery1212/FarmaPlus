@@ -1,5 +1,9 @@
 <?php if (isset($product)) : ?>
-    <h1><?= $product->nombre ?></h1>
+    <div class="row titulo-seccion">
+        <div class="col-md-12">
+            <h3><?= $product->nombre ?></h3>
+        </div>
+    </div>
     <div id="detail-product">
         <div class="image">
             <?php if ($product->imagen != null) : ?>
@@ -10,7 +14,7 @@
         </div>
         <div class="data">
             <p class="description"><?= $product->descripcion ?></p>
-            <p class="price">$<?= $product->precio ?></p>
+            <p class="price">$<?= number_format($product->precio, 2) ?> MXN</p>
             <a href="<?= base_url ?>carrito/add&id=<?= $product->id ?>" class="button">Comprar</a>
         </div>
 
