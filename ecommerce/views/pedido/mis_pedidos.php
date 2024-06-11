@@ -31,7 +31,7 @@
                         </a>
                     </td>
                     <td data-label="Coste">
-                        <?= number_format($ped->coste, 2) ?> MXN
+                        $<?= number_format($ped->coste, 2) ?> MXN
                     </td>
                     <td data-label="Fecha">
                         <?= $ped->fecha ?>

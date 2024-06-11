@@ -52,7 +52,7 @@ Utils::deleteSession('pago');
     <h3>Datos del pedido: </h3>
     <p>Estado: <?= Utils::showStatus($pedido->estado) ?></p>
     <p>Numero de pedido: <?= $pedido->id ?></p>
-    <p>Total a pagar: <?= number_format($pedido->coste, 2) ?> MXN</p>
+    <p>Total a pagar: $<?= number_format($pedido->coste, 2) ?> MXN</p>
     <h3>Productos:</h3>
     <div class="table-responsive">
         <table class="responsive-table">
@@ -78,7 +78,7 @@ Utils::deleteSession('pago');
                             <a href="<?= base_url ?>/producto/ver&id=<?= $producto->id ?>"><?= $producto->nombre ?></a>
                         </td>
                         <td data-label="Precio">
-                            <?= number_format($producto->precio, 2) ?> MXN
+                            $<?= number_format($producto->precio, 2) ?> MXN
                         </td>
                         <td data-label="Unidades">
                             <?= $producto->unidades ?>
