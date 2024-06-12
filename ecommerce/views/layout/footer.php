@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul>
-                        <li><a href="<?= base_url ?>">Inicio</a></li>
+                        <li><a href="<?= base_url ?>producto/index">Inicio</a></li>
                         <li>
                             <a href="<?= base_url ?>shopInfo/quienesSomos">Quienes somos</a>
                         </li>

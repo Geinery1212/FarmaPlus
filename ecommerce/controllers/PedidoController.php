@@ -1,5 +1,5 @@
 <?php
-require_once 'ecommerce/models/pedido.php';
+require_once 'ecommerce/models/Pedido.php';
 // Incluir la clase PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -10,7 +10,7 @@ require 'ecommerce/helpers/PHPMailer/Exception.php';
 require 'ecommerce/helpers/PHPMailer/PHPMailer.php';
 require 'ecommerce/helpers/PHPMailer/SMTP.php';
 
-class pedidoController
+class PedidoController
 {
 	public function add()
 	{

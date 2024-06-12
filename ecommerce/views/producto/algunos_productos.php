@@ -30,10 +30,10 @@ Utils::deleteSession('UserControllerMessageSuccess');
                     <h3 class="precio">$<?=number_format($producto->precio,2) ?> MXN</h3>
                     <div class="opciones">
                         <div>                            
-                            <a href="<?= base_url ?>Carrito/add&id=<?= $producto->id ?>" class="comprar">Comprar</a>
+                            <a href="<?= base_url ?>carrito/add&id=<?= $producto->id ?>" class="comprar">Comprar</a>
                         </div>
                         <div>
-                            <a href="<?= base_url ?>Producto/ver&id=<?= $producto->id ?>" class="descripcion">Descripción</a>
+                            <a href="<?= base_url ?>producto/ver&id=<?= $producto->id ?>" class="descripcion">Descripción</a>
                         </div>
                     </div>
                 </div>

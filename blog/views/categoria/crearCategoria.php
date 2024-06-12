@@ -19,9 +19,9 @@ Utils::deleteSession('CategoriaControllerMessageError');
 		usarlas al crear sus entradas.
 	</p>
 	<br />
-	<form action="<?= base_url_blog ?>categoriablog/guardarCategoria" method="POST">
+	<form action="<?= base_url_blog ?>categoriaBlog/guardarCategoria" method="POST">
 		<label for="nombre">Nombre de la categoría:</label>
-		<input type="text" name="nombre" />
+		<input type="text" name="nombre" required />
 
 		<input type="submit" value="Guardar" />
 	</form>

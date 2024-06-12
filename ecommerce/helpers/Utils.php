@@ -22,7 +22,7 @@
             }
         }
         public static function showCategorias(){
-            require_once  __DIR__ . '/../models/Categoria.php';
+            require_once 'ecommerce/models/Categoria.php';
             $categoria = new Categoria();
             $categorias = $categoria->getCategorias();
             return $categorias;

@@ -109,8 +109,8 @@
             </div>
 
 
-            <!-- MENU -->
             <?php $categorias = Utils::showCategorias(); ?>     
+            <!-- MENU -->
             <nav class="menu">
                 <div class="container">
                     <div class="row">

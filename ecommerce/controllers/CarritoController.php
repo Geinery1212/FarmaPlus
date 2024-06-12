@@ -1,6 +1,6 @@
 <?php
-require_once 'ecommerce/models/producto.php';
-class carritoController
+require_once 'ecommerce/models/Producto.php';
+class CarritoController
 {
 
     public function index()
