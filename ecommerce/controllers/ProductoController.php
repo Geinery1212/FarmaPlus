@@ -30,35 +30,35 @@ class ProductoController
         require_once 'ecommerce/views/producto/ver.php';
     }
     public function busqueda()
-{
-    if (isset($_POST['buscar'])) {
-        $buscar = $_POST['buscar'];
-        $producto = new Producto();
-        $productos_por_pagina = 6;
-        $pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-        $offset = ($pagina_actual - 1) * $productos_por_pagina;
+    {
+        if (isset($_POST['buscar'])) {
+            $buscar = $_POST['buscar'];
+            $producto = new Producto();
+            $productos_por_pagina = 6;
+            $pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+            $offset = ($pagina_actual - 1) * $productos_por_pagina;
 
-        try {
-            // Búsqueda de productos
-            $productos = $producto->buscar($buscar, $offset, $productos_por_pagina);
+            try {
+                // Búsqueda de productos
+                $productos = $producto->buscar($buscar, $offset, $productos_por_pagina);
 
-            // Obtenemos el número total de productos
-            if ($productos) {
-                $total_productos = $productos->num_rows;
-            } else {
-                $total_productos = 0;
+                // Obtenemos el número total de productos
+                if ($productos) {
+                    $total_productos = $productos->num_rows;
+                } else {
+                    $total_productos = 0;
+                }
+
+                // Calculamos el total de páginas
+                $total_paginas = ceil($total_productos / $productos_por_pagina);
+
+                require_once 'ecommerce/views/producto/busqueda.php';
+            } catch (Exception $e) {
+                // Manejar el error adecuadamente (por ejemplo, mostrar un mensaje de error)
+                echo "Ocurrió un error durante la búsqueda: " . $e->getMessage();
             }
-
-            // Calculamos el total de páginas
-            $total_paginas = ceil($total_productos / $productos_por_pagina);
-
-            require_once 'ecommerce/views/producto/busqueda.php';
-        } catch (Exception $e) {
-            // Manejar el error adecuadamente (por ejemplo, mostrar un mensaje de error)
-            echo "Ocurrió un error durante la búsqueda: " . $e->getMessage();
         }
     }
-}
 
     public function gestion()
     {
@@ -82,7 +82,6 @@ class ProductoController
             $precio = isset($_POST["precio"]) ? $_POST["precio"] : false;
             $stock = isset($_POST["stock"]) ? $_POST["stock"] : false;
             $categoria = isset($_POST["categoria"]) ? $_POST["categoria"] : false;
-            //$imagen = isset($_POST["imagen"]) ? $_POST["imagen"] : false;
 
             if ($nombre && $descripcion && $precio && $stock && $categoria) {
                 $producto = new Producto();
@@ -100,12 +99,15 @@ class ProductoController
 
                     if ($mimetype == 'image/jpg' || $mimetype == 'image/jpeg' || $mimetype == 'image/png' || $mimetype == 'image/gif') {
 
-                        if (!is_dir('uploads/images')) {
-                            mkdir('uploads/images', 0777, true);
+                        // Crear un nombre único para la imagen
+                        $unique_filename = uniqid() . '_' . $filename;
+
+                        if (!is_dir('ecommerce/uploads/images')) {
+                            mkdir('ecommerce/uploads/images', 0777, true);
                         }
 
-                        move_uploaded_file($file['tmp_name'], 'uploads/images/' . $filename);
-                        $producto->setImagen($filename);
+                        move_uploaded_file($file['tmp_name'], 'ecommerce/uploads/images/' . $unique_filename);
+                        $producto->setImagen($unique_filename);
                     }
                 }
 
@@ -142,6 +144,7 @@ class ProductoController
         }
         header('Location:' . base_url . 'producto/gestion');
     }
+
     public function editar()
     {
         Utils::isAdmin();

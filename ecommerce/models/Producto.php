@@ -143,7 +143,7 @@ class Producto
 
     public function getProducts($offset, $limit)
     {
-        $sql = "SELECT * FROM productos WHERE stock >= 1 ORDER BY rand() LIMIT $offset, $limit";
+        $sql = "SELECT * FROM productos WHERE stock >= 1 LIMIT $offset, $limit";
         $productos = $this->db->query($sql);
         return $productos;
     }
