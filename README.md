@@ -55,4 +55,4 @@ This is a basic PHP e-commerce application for a pharmacy. It is built using PHP
 - Please ensure to change the credentials and sensitive data before using the project in a production environment.
 
 ## Demo
-You can watch it online at [FarmaPlus](https://welcometofarmaplus.000webhostapp.com/blog/posts/index).
+You can watch it online at [FarmaPlus](https://welcometofarmaplus.000webhostapp.com).
